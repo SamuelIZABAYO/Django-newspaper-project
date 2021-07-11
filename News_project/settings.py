@@ -13,13 +13,15 @@ import os.path
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+from decouple import config
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-q+=sal#b_nt7xh32(lbg2+cs9o5k1c8git2cw0y$4at$8vpv9$'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -132,10 +134,9 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_HOST_USER = 'apikey'
-EMAIL_HOST_PASSWORD = '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'
-EMAIL_PORT = 587
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = config('EMAIL_PORT', cast=int)
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'nuer911@gmail.com'
 # SENDGRID_SANDBOX_MODE_IN_DEBUG = True
 # SENDGRID_ECHO_TO_STDOUT = True
-

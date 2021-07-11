@@ -128,4 +128,14 @@ AUTH_USER_MODEL = 'Users_app.CustomUser'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = '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'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'nuer911@gmail.com'
+# SENDGRID_SANDBOX_MODE_IN_DEBUG = True
+# SENDGRID_ECHO_TO_STDOUT = True
+
